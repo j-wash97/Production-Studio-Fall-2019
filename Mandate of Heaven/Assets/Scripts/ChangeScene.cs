@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class ChangeScene : MonoBehaviour
 {
 
@@ -10,13 +11,23 @@ public class ChangeScene : MonoBehaviour
     /// The name of the character
     /// </summary>
     /// 
+    public InputField enterName;
+
     public string pName = "";
-    
+
     public static string Name = "Fen";
     /// <summary>
     /// The health points of a character
     /// </summary>
     ///
+
+    // variables
+    /// <summary>
+    /// The class of the Character
+    /// </summary>
+    /// 
+    public static string clss = "";
+
     public int pHP = 0;
     public static int HP = 10;
     /// <summary>
@@ -57,6 +68,22 @@ public class ChangeScene : MonoBehaviour
     /// The Special Ability value of the character (0, 1, 2, +...)
     /// </summary>
     public static int SpcAbility = 3;
+
+
+    public void setName()
+    {
+        if (enterName.text == "")
+        {
+            return;
+        }
+        else
+        {
+            Name = enterName.text;
+        }
+
+    }
+
+    
 
     public void changeScene(string SceneName)
     {

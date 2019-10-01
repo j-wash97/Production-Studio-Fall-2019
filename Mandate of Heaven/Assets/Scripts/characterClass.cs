@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class characterClass : MonoBehaviour
 {
+    //name of character
 
     public string Name;
+
+    //class of character
+    public string clss;
 
     /// The health points of a character
 
@@ -46,6 +50,7 @@ public class characterClass : MonoBehaviour
     {
         // variables
         Name = ChangeScene.Name;
+        clss = ChangeScene.clss;
         HP = ChangeScene.HP;
         MD = ChangeScene.MD;
         PD = ChangeScene.PD;
@@ -62,6 +67,7 @@ public class characterClass : MonoBehaviour
     public void write()
     {
         Debug.Log("The name of this person is " + Name);
+        Debug.Log("Their class is " + clss);
         Debug.Log("Health is " + HP);
         Debug.Log("Magic Defense is " + MD);
         Debug.Log("Physical Defense is " + PD);
