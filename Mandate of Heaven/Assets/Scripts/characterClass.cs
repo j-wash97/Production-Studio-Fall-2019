@@ -44,6 +44,8 @@ public class characterClass : MonoBehaviour
 
     public int SpcAbility;
 
+    // An identifier for the character's location
+    public int location;
 
 
     void Start()
