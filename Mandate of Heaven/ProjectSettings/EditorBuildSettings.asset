@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrialEvent.unity
     guid: 1862b91d519f19d418aa56dd46a45bed
+  - enabled: 1
+    path: Assets/Scenes/fightScene.unity
+    guid: f0bde1ceb294c084ebdbf7fc1b0dfdda
   m_configObjects: {}
