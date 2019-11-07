@@ -48,7 +48,7 @@ public class characterClass : MonoBehaviour
     public int location;
 
 
-    void Start()
+    void Awake()
     {
         // variables
         Name = ChangeScene.Name;

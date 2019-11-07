@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class MapNode : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPointerExitHandler
 {
@@ -44,23 +42,14 @@ public class MapNode : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPoi
         if (lerpCounter < 1.0f)
             lerpCounter = Mathf.Min(1.0f, lerpCounter + Time.deltaTime);
 
-        SerializedObject halo = new SerializedObject(GetComponent("Halo"));
-        //halo.FindProperty("m_Enabled").boolValue = _isEnabled;
-
         if (isHighlighted)
         {
-            halo.FindProperty("m_Color").colorValue = Color.Lerp(Color.white, Color.yellow, lerpCounter);
-            halo.FindProperty("m_Size").floatValue = Mathf.Lerp(1.25f, 1.50f, lerpCounter);
             GetComponentInChildren<Text>().color = Color.Lerp(Color.black, Color.white, lerpCounter);
         }
         else
         {
-            halo.FindProperty("m_Color").colorValue = Color.Lerp(Color.yellow, Color.white, lerpCounter);
-            halo.FindProperty("m_Size").floatValue = Mathf.Lerp(1.50f, 1.25f, lerpCounter);
             GetComponentInChildren<Text>().color = Color.Lerp(Color.white, Color.black, lerpCounter);
         }
-
-        halo.ApplyModifiedProperties();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

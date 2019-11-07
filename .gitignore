@@ -34,3 +34,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/Mandate of Heaven/Assets/Scenes/Main Menu.unity
+/Mandate of Heaven/Assets/Scenes/Main Menu.unity.meta

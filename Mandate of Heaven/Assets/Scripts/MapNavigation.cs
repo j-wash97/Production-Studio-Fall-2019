@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
-using UnityEditor;
+using UnityEngine.EventSystems;
 
 public class MapNavigation : MonoBehaviour
 {
@@ -52,6 +52,9 @@ public class MapNavigation : MonoBehaviour
             player.transform.position = Vector3.Lerp(player.transform.position,
                                                      locNodes[playerCharacter.location].position,
                                                      lerpCounter);
+
+            if (lerpCounter == 1.0f)
+                EventSystem.current.SetSelectedGameObject(null);
         }
     }
 
@@ -63,20 +66,15 @@ public class MapNavigation : MonoBehaviour
         // If a location is adjacent, set its interactivity on the map to reflect that
         for(int i = 0; i < locNodes.Length; i++)
         {
-            SerializedObject halo = new SerializedObject(mapNodes[i].GetComponent("Halo"));
 
             if (adjacents.Contains(locNodes[i]) || i == playerCharacter.location)
             {
                 mapNodes[i].GetComponent<Button>().interactable = true;
-                halo.FindProperty("m_Enabled").boolValue = true;
             }
             else
             {
                 mapNodes[i].GetComponent<Button>().interactable = false;
-                halo.FindProperty("m_Enabled").boolValue = false;
             }
-
-            halo.ApplyModifiedProperties();
         }
     }
 
