@@ -25,17 +25,18 @@ public class philosopherEvent : MonoBehaviour
         {
             case 1:
                 result = mageChoice;
-                ChangeScene.MA += 1;
-                ChangeScene.MD += 1;
+                characterClass.MA += 1;
+                characterClass.MD += 1;
                 break;
             case 2:
                 result = knightChoice;
-                ChangeScene.PA += 1;
-                ChangeScene.PD += 1;
+                characterClass.PA += 1;
+                characterClass.PD += 1;
                 break;
             case 3:
                 result = neitherChoice;
-                ChangeScene.HP += 2;
+                characterClass.currentHP += 2;
+                characterClass.totalHP += 2;
                 break;
             case 4:
                 result = abandon;

@@ -10,8 +10,8 @@ public class displayStats : MonoBehaviour
 
     public void display()
     {
-        nameText.text = "Name: " + ChangeScene.Name;
-        clssText.text = "Class: " + ChangeScene.clss;
-        hpText.text = "Health: " + ChangeScene.HP;
+        nameText.text = "Name: " + characterClass.Name;
+        clssText.text = "Class: " + characterClass.clss;
+        hpText.text = "Health: " + characterClass.currentHP + "/" + characterClass.totalHP;
     }
 }

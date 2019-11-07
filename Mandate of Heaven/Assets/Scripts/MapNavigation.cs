@@ -63,20 +63,20 @@ public class MapNavigation : MonoBehaviour
         // If a location is adjacent, set its interactivity on the map to reflect that
         for(int i = 0; i < locNodes.Length; i++)
         {
-            SerializedObject halo = new SerializedObject(mapNodes[i].GetComponent("Halo"));
+            //SerializedObject halo = new SerializedObject(mapNodes[i].GetComponent("Halo"));
 
             if (adjacents.Contains(locNodes[i]) || i == playerCharacter.location)
             {
                 mapNodes[i].GetComponent<Button>().interactable = true;
-                halo.FindProperty("m_Enabled").boolValue = true;
+               // halo.FindProperty("m_Enabled").boolValue = true;
             }
             else
             {
                 mapNodes[i].GetComponent<Button>().interactable = false;
-                halo.FindProperty("m_Enabled").boolValue = false;
+                //halo.FindProperty("m_Enabled").boolValue = false;
             }
 
-            halo.ApplyModifiedProperties();
+          //  halo.ApplyModifiedProperties();
         }
     }
 

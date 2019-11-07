@@ -1001,6 +1001,123 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858578455}
   m_CullTransparentMesh: 0
+--- !u!1001 &878760368
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6751428831305225090, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_Name
+      value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 508.79086
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 245.04208
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1397.6143
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225088, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751428831305225089, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: assassin
+      value: 
+      objectReference: {fileID: 21300000, guid: 9654e809260c846408343b5ed35b95b1,
+        type: 3}
+    - target: {fileID: 6751428831305225089, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: bandersnatch
+      value: 
+      objectReference: {fileID: 21300000, guid: b425a76ff48180446949719671f6e0fb,
+        type: 3}
+    - target: {fileID: 6751428831305225089, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: doctor
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ea89516671814644ac11d36a284a559,
+        type: 3}
+    - target: {fileID: 6751428831305225089, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: knight
+      value: 
+      objectReference: {fileID: 21300000, guid: 329d1941313d6ca48ae34cb854f0bd52,
+        type: 3}
+    - target: {fileID: 6751428831305225089, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: monk
+      value: 
+      objectReference: {fileID: 21300000, guid: 76c64df888a7e534f981b91ce69f2395,
+        type: 3}
+    - target: {fileID: 6751428831305225089, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: noble
+      value: 
+      objectReference: {fileID: 21300000, guid: 17d8ddbdc0d52e6448967ed1d06f1548,
+        type: 3}
+    - target: {fileID: 6751428831305225089, guid: 819cf97348124db44bfe6570736fd74c,
+        type: 3}
+      propertyPath: witch
+      value: 
+      objectReference: {fileID: 21300000, guid: ff92fab4225507c408a3d0581700aa7a,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 819cf97348124db44bfe6570736fd74c, type: 3}
+--- !u!1 &878760369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6751428831305225090, guid: 819cf97348124db44bfe6570736fd74c,
+    type: 3}
+  m_PrefabInstance: {fileID: 878760368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &945208398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,15 +1349,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd041dc9964c0d1468cbbac335909663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  clss: 
-  HP: 0
-  MD: 0
-  PD: 0
-  MA: 0
-  PA: 0
-  AS: 0
-  SpcAbility: 0
+  assassin: {fileID: 0}
+  bandersnatch: {fileID: 0}
+  doctor: {fileID: 0}
+  knight: {fileID: 0}
+  monk: {fileID: 0}
+  noble: {fileID: 0}
+  witch: {fileID: 0}
+  enemy: {fileID: 0}
+  location: 0
 --- !u!114 &964749473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,12 +1370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8859568689da734a82433d66d68509f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pName: 
-  pHP: 0
-  pMD: 0
-  pPD: 0
-  pMA: 0
-  pPA: 0
 --- !u!114 &964749474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,9 +1379,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 964749468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810f59dba6e53c54f8df87aacebc2665, type: 3}
+  m_Script: {fileID: 11500000, guid: cd3aa302975060041994ad872dec0f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 878760369}
+  enterName: {fileID: 693869676}
+  clss: 
 --- !u!1 &1155948124
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,7 +2356,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 964749473}
+      - m_Target: {fileID: 964749474}
         m_MethodName: setName
         m_Mode: 1
         m_Arguments:

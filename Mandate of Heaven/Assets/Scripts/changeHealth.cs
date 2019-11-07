@@ -6,12 +6,12 @@ public class changeHealth : MonoBehaviour
 {
     public void increase()
     {
-        ChangeScene.HP++;
+        characterClass.currentHP++;
     }
 
     public void decrease()
     {
-        ChangeScene.HP--;
+        characterClass.currentHP--;
     }
 
 }

@@ -16,25 +16,35 @@ public class chickenEvent : MonoBehaviour
 
     //have one string be the final result
     string result;
-    public string check()
+    public void choose(int index)
     {
-        if (ChangeScene.MS  < 4|| ChangeScene.AS < 4)
+        switch (index)
         {
-            result = failure;
-            return result;
+            case 1:
+                if (characterClass.MS < 4 || characterClass.AS < 4)
+                {
+                    result = failure;
+
+                }
+                else
+                {
+                    result = succeed;
+
+                }
+                break;
+            case 2:
+                result = leaveChild;
+                break;
+
+            default:
+
+                break;
         }
-        else
-        {
-            result = succeed;
-            return result;
-        }
+
     }
-    //have fucntion to ingore
-    public string abandon()
-    {
-        result = leaveChild;
-        return result;
-    }
+
+
+
 
     //have several functions just to return strings
     public string chaseChicken()
@@ -60,5 +70,10 @@ public class chickenEvent : MonoBehaviour
     public string leaveTheChild()
     {
         return leaveChild;
+    }
+
+    public string resultText()
+    {
+        return result;
     }
 }

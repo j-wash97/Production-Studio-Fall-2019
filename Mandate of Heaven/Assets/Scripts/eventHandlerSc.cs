@@ -43,7 +43,8 @@ public class eventHandlerSc : MonoBehaviour
             
 
             //set up the buttons to click
-            butt1.onClick.AddListener(() => replaceDescr(0)); 
+            butt1.onClick.AddListener(() => replaceDescr(1));
+            butt2.onClick.AddListener(() => replaceDescr(2));
         }
         //if we encounter the philosphers
         if (ifChicken == false && ifPhilosopher == true && ifWolf == false)
@@ -56,7 +57,8 @@ public class eventHandlerSc : MonoBehaviour
         //if we ecounter wolves
         if(ifChicken == false && ifPhilosopher == false && ifWolf == true)
         {
-
+            butt1.onClick.AddListener(() => replaceDescr(1));
+            butt2.onClick.AddListener(() => replaceDescr(2));
         }
 
     }
@@ -120,6 +122,12 @@ public class eventHandlerSc : MonoBehaviour
                 ifWolf = true;
                 ifChicken = false;
                 ifPhilosopher = false;
+                //set up the ui
+                txt.text = deicide.GetComponent<wolfEvent>().descr();
+                butt1.GetComponentInChildren<Text>().text = deicide.GetComponent<wolfEvent>().fightButn();
+                butt2.GetComponentInChildren<Text>().text = deicide.GetComponent<wolfEvent>().fleeButn();
+                butt3.gameObject.SetActive(false);
+                butt4.gameObject.SetActive(false);
                 break;
             default:
                 break;
@@ -130,10 +138,11 @@ public class eventHandlerSc : MonoBehaviour
     //replace the description with a new one
     public void replaceDescr(int index)
     {
-        
+
         if (ifChicken && !ifPhilosopher && !ifWolf)
         {
-            txt.text = deicide.GetComponent<chickenEvent>().check();
+            deicide.GetComponent<chickenEvent>().choose(index);
+            txt.text = deicide.GetComponent<chickenEvent>().resultText();
             //repurpose the first button
             butt1.GetComponentInChildren<Text>().text = "Close.";
 
@@ -144,72 +153,91 @@ public class eventHandlerSc : MonoBehaviour
             butt1.onClick.AddListener(() => closeCanvas());
 
         }
-        if(ifPhilosopher && !ifChicken && !ifWolf)
+        if (ifPhilosopher && !ifChicken && !ifWolf)
         {
-             txt.text = "philosopher";
+            txt.text = "philosopher";
+            if (index == 1)
+            {
+                deicide.GetComponent<philosopherEvent>().choose(index);
+                txt.text = deicide.GetComponent<philosopherEvent>().resultText();
+
+                //disable other buttons
+                //set the first button to close out the canvas 
+                butt1.GetComponentInChildren<Text>().text = "Close.";
+                butt2.gameObject.SetActive(false);
+                butt3.gameObject.SetActive(false);
+                butt4.gameObject.SetActive(false);
+
+                butt1.onClick.AddListener(() => closeCanvas());
+            }
+            if (index == 2)
+            {
+                deicide.GetComponent<philosopherEvent>().choose(index);
+                txt.text = deicide.GetComponent<philosopherEvent>().resultText();
+
+                //disable other buttons
+                //set the first button to close out the canvas 
+                butt1.GetComponentInChildren<Text>().text = "Close.";
+                butt2.gameObject.SetActive(false);
+                butt3.gameObject.SetActive(false);
+                butt4.gameObject.SetActive(false);
+
+                butt1.onClick.AddListener(() => closeCanvas());
+
+            }
+            if (index == 3)
+            {
+                deicide.GetComponent<philosopherEvent>().choose(index);
+                txt.text = deicide.GetComponent<philosopherEvent>().resultText();
+
+                //disable other buttons
+                //set the first button to close out the canvas 
+                butt1.GetComponentInChildren<Text>().text = "Close.";
+                butt2.gameObject.SetActive(false);
+                butt3.gameObject.SetActive(false);
+                butt4.gameObject.SetActive(false);
+
+                butt1.onClick.AddListener(() => closeCanvas());
+            }
+            if (index == 4)
+            {
+                deicide.GetComponent<philosopherEvent>().choose(index);
+                txt.text = deicide.GetComponent<philosopherEvent>().resultText();
+
+                //disable other buttons
+                //set the first button to close out the canvas 
+                butt1.GetComponentInChildren<Text>().text = "Close.";
+                butt2.gameObject.SetActive(false);
+                butt3.gameObject.SetActive(false);
+                butt4.gameObject.SetActive(false);
+
+                butt1.onClick.AddListener(() => closeCanvas());
+            }
+        }
+        if (ifWolf && !ifChicken && !ifPhilosopher)
+        {
             if(index == 1)
             {
-               deicide.GetComponent<philosopherEvent>().choose(index);
-               txt.text = deicide.GetComponent<philosopherEvent>().resultText();
-
-                //disable other buttons
-                //set the first button to close out the canvas 
-                butt1.GetComponentInChildren<Text>().text = "Close.";
+                deicide.GetComponent<wolfEvent>().choose(index);
+                txt.text = deicide.GetComponent<wolfEvent>().resultTxt();
+                //disable the second button and repurpose the first one
+                butt1.GetComponentInChildren<Text>().text = "Fight!";
                 butt2.gameObject.SetActive(false);
-                butt3.gameObject.SetActive(false);
-                butt4.gameObject.SetActive(false);
-
-                butt1.onClick.AddListener(() => closeCanvas());
+                butt1.onClick.AddListener(() => startFight());
             }
-            if(index == 2)
+            if(index ==2)
             {
-                deicide.GetComponent<philosopherEvent>().choose(index);
-                txt.text = deicide.GetComponent<philosopherEvent>().resultText();
+                deicide.GetComponent<wolfEvent>().choose(index);
+                txt.text = deicide.GetComponent<wolfEvent>().resultTxt();
 
-                //disable other buttons
-                //set the first button to close out the canvas 
-                butt1.GetComponentInChildren<Text>().text = "Close.";
+                //disable the second button, repurpose the first one
+                butt1.GetComponentInChildren<Text>().text = "Close";
                 butt2.gameObject.SetActive(false);
-                butt3.gameObject.SetActive(false);
-                butt4.gameObject.SetActive(false);
-
-                butt1.onClick.AddListener(() => closeCanvas());
-
-            }
-            if(index == 3)
-            {
-                deicide.GetComponent<philosopherEvent>().choose(index);
-                txt.text = deicide.GetComponent<philosopherEvent>().resultText();
-
-                //disable other buttons
-                //set the first button to close out the canvas 
-                butt1.GetComponentInChildren<Text>().text = "Close.";
-                butt2.gameObject.SetActive(false);
-                butt3.gameObject.SetActive(false);
-                butt4.gameObject.SetActive(false);
-
                 butt1.onClick.AddListener(() => closeCanvas());
             }
-            if(index == 4)
-            {
-                deicide.GetComponent<philosopherEvent>().choose(index);
-                txt.text = deicide.GetComponent<philosopherEvent>().resultText();
-
-                //disable other buttons
-                //set the first button to close out the canvas 
-                butt1.GetComponentInChildren<Text>().text = "Close.";
-                butt2.gameObject.SetActive(false);
-                butt3.gameObject.SetActive(false);
-                butt4.gameObject.SetActive(false);
-
-                butt1.onClick.AddListener(() => closeCanvas());
-            }
+            
         }
-        if(ifWolf && !ifChicken && !ifPhilosopher)
-        {
-            txt.text = "wolves";
-        }
-       
+
     }
 
     //have a function that wil leave wahtever event has been called
@@ -227,6 +255,6 @@ public class eventHandlerSc : MonoBehaviour
 
     public void startFight()
     {
-
+        deicide.GetComponent<ChangeScene>().changeScene("fightScene");
     }
 }
