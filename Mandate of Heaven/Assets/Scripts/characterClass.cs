@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class characterClass : MonoBehaviour
 {
+    public Character character;
     //name of character
 
     public string Name;

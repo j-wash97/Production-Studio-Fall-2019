@@ -19,7 +19,7 @@ public class MapNode : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPoi
     public Vector3 position;
 
     // A collection of the occupants of the node's location
-    public List<characterClass> occupants;
+    public List<Character> occupants;
 
     // The node's button on the map
     private Button button;
