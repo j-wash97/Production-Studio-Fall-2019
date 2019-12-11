@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class philosopherEvent : MonoBehaviour
 {
-   
+    public characterClass chrctr;
     //have some strings to give player identifying info abt event
     string description = "You are travelling along a road when you suddenly overhear a fierce verbal debate from afar. Coming upon two wise men nearly brought to fisticuffs, you listen for awhile before discovering that each has a wildly different take on the best form of warfare. They ask you to pass final judgement on who best argues their case. Will you agree with the Scholar of Mages, the Scholar of Knights, disagree with both and posit a healthy fighting-free lifestyle, or ignore them and hurry on your way?";
     string sideMage = "Side with the Scholar of Mages";
@@ -25,17 +25,18 @@ public class philosopherEvent : MonoBehaviour
         {
             case 1:
                 result = mageChoice;
-                ChangeScene.MA += 1;
-                ChangeScene.MD += 1;
+                chrctr.setMA(1);
+                chrctr.setMD(1);
                 break;
             case 2:
                 result = knightChoice;
-                ChangeScene.PA += 1;
-                ChangeScene.PD += 1;
+                chrctr.setPA(1);
+                chrctr.setPD(1);
                 break;
             case 3:
                 result = neitherChoice;
-                ChangeScene.HP += 2;
+                characterClass.currentHP += 2;
+                characterClass.totalHP += 2;
                 break;
             case 4:
                 result = abandon;

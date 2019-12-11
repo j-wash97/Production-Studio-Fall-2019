@@ -14,6 +14,26 @@ public class wolfEvent : MonoBehaviour
     string fightChoice = "You prepare yourself for combat!";
     string fleeChoice = "You flee from the ravenous pack of wolves.";
 
+    string result;
+    public void choose(int index)
+    {
+        switch (index)
+        {
+            case 1:
+                result = fightChoice;
+                break;
+            case 2:
+                result = fleeChoice;
+                break;
+
+
+            default:
+
+                break;
+        }
+
+    }
+
     public string descr()
     {
         return description;
@@ -37,5 +57,10 @@ public class wolfEvent : MonoBehaviour
     public string fleeDescr()
     {
         return fleeChoice;
+    }
+
+    public string resultTxt()
+    {
+        return result;
     }
 }

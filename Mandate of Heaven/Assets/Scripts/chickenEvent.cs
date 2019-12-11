@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class chickenEvent : MonoBehaviour
 {
+    public characterClass chrctr;
     //have some strings to introduce you to the event
     string description = "You arrive in a small settlement. As you take a look at your surroundings you notice a crying child, a broken pen made from twigs, and a loose chicken that is making its way down the settlement's main road.";
     string chase = "Catch the chicken (Requires 4 MS and 4 AS).";
@@ -16,25 +17,35 @@ public class chickenEvent : MonoBehaviour
 
     //have one string be the final result
     string result;
-    public string check()
+    public void choose(int index)
     {
-        if (ChangeScene.MS  < 4|| ChangeScene.AS < 4)
+        switch (index)
         {
-            result = failure;
-            return result;
+            case 1:
+                if (chrctr.showMS() < 4 || chrctr.showAS() < 4)
+                {
+                    result = failure;
+
+                }
+                else
+                {
+                    result = succeed;
+
+                }
+                break;
+            case 2:
+                result = leaveChild;
+                break;
+
+            default:
+
+                break;
         }
-        else
-        {
-            result = succeed;
-            return result;
-        }
+
     }
-    //have fucntion to ingore
-    public string abandon()
-    {
-        result = leaveChild;
-        return result;
-    }
+
+
+
 
     //have several functions just to return strings
     public string chaseChicken()
@@ -60,5 +71,10 @@ public class chickenEvent : MonoBehaviour
     public string leaveTheChild()
     {
         return leaveChild;
+    }
+
+    public string resultText()
+    {
+        return result;
     }
 }
