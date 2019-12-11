@@ -448,6 +448,7 @@ GameObject:
   - component: {fileID: 673781720}
   - component: {fileID: 673781719}
   - component: {fileID: 673781718}
+  - component: {fileID: 673781724}
   m_Layer: 0
   m_Name: eventGOD
   m_TagString: Untagged
@@ -479,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b24cb67945355d488bcf0ad37d7a9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chrctr: {fileID: 673781724}
 --- !u!114 &673781720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c2cab7592cf2a40adc216e3057e99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chrctr: {fileID: 673781724}
 --- !u!114 &673781721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,13 +506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8859568689da734a82433d66d68509f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterName: {fileID: 0}
-  pName: 
-  pHP: 0
-  pMD: 0
-  pPD: 0
-  pMA: 0
-  pPA: 0
 --- !u!114 &673781722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +544,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &673781724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673781717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd041dc9964c0d1468cbbac335909663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assassin: {fileID: 0}
+  bandersnatch: {fileID: 0}
+  doctor: {fileID: 0}
+  knight: {fileID: 0}
+  monk: {fileID: 0}
+  noble: {fileID: 0}
+  witch: {fileID: 0}
+  enemy: {fileID: 0}
+  location: 0
 --- !u!1 &856106976
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class chickenEvent : MonoBehaviour
 {
+    public characterClass chrctr;
     //have some strings to introduce you to the event
     string description = "You arrive in a small settlement. As you take a look at your surroundings you notice a crying child, a broken pen made from twigs, and a loose chicken that is making its way down the settlement's main road.";
     string chase = "Catch the chicken (Requires 4 MS and 4 AS).";
@@ -21,7 +22,7 @@ public class chickenEvent : MonoBehaviour
         switch (index)
         {
             case 1:
-                if (characterClass.MS < 4 || characterClass.AS < 4)
+                if (chrctr.showMS() < 4 || chrctr.showAS() < 4)
                 {
                     result = failure;
 

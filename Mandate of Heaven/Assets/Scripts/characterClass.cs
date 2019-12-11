@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class characterClass : MonoBehaviour
 {
-    battlerHandler mng;
+    public battlerHandler mng;
     public Sprite assassin;
     public Sprite bandersnatch;
     public Sprite doctor;
@@ -22,6 +22,9 @@ public class characterClass : MonoBehaviour
 
     //class of character
     public static string clss;
+
+    //file path of the sprite
+    public string fullBodyPath;
 
     /// The health points of a character
 
@@ -61,11 +64,12 @@ public class characterClass : MonoBehaviour
     // An identifier for the character's location
     public  int location;
 
+   
 
     void Start()
     {
         currentHP = totalHP;
-        setImage();
+        //setImage();
         // variables
         /*Name = ChangeScene.Name;
         clss = ChangeScene.clss;
@@ -79,8 +83,10 @@ public class characterClass : MonoBehaviour
         SpcAbility = ChangeScene.SpcAbility;
 
         */
-
+       
     }
+
+    
     
     public void write()
     {
@@ -149,7 +155,7 @@ public class characterClass : MonoBehaviour
             
         }
         */
-    
+    /*
     public void setImage()
     {
         if(clss == "Assassin")
@@ -180,7 +186,7 @@ public class characterClass : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = witch;
         }
-    }
+    }*/
    
     public bool dead()
     {
@@ -216,12 +222,62 @@ public class characterClass : MonoBehaviour
         return clss;
     }
 
-    public void attack()
+    public int attack()
     {
-        //call the wolf's take damage function
-        mng.GetComponent<wolfScript>().takeDamage(PA);
+        return PA;  
     }
 
    
+    //have functions to set up the stats of the character
+   public void setCurrHp(int changeBy)
+    {
+        currentHP += changeBy;
+    }
+
+    public void setTotalHealth(int changeBy)
+    {
+        totalHP += changeBy;
+    }
+
+    public void setMD(int changeBy)
+    {
+        MD += changeBy;
+    }
+
+    public void setMA(int changeBy)
+    {
+        MA += changeBy;
+    }
+
+    public void setPD(int changeBy)
+    {
+        PD += changeBy;
+    }
+
+    public void setPA(int changeBy)
+    {
+        PA += changeBy;
+    }
+
+    public void setMS(int changeBy)
+    {
+        MS += changeBy;
+    }
+
+    public void setAS(int changeBy)
+    {
+        AS += changeBy;
+
+    }
+
+    public int showMS()
+    {
+        return MS;
+    }
+
+    public int showAS()
+    {
+        return AS;
+    }
 
 }

@@ -5,92 +5,147 @@ using UnityEngine.UI;
 public class classSelect : MonoBehaviour
 {
     public GameObject player;
+    public characterClass mng;
 
     public InputField enterName;
 
     public string clss = "";
 
+    //class beast
     public void setClassBeast()
     {
         characterClass.clss = "Beast";
+        //total hp is 4
         characterClass.totalHP = 4;
-        characterClass.MD = 2;
-        characterClass.PD = 2;
-        characterClass.MA = 2;
-        characterClass.PA = 2;
-        characterClass.MS = 4;
-        characterClass.AS = 4;
+        //Magic defense is 2
+        player.GetComponent<characterClass>().setMD(2);
+        //physical defense is 2;
+        player.GetComponent<characterClass>().setPD(2);
+        //magic attack is 2
+        player.GetComponent<characterClass>().setMA(2);
+        //physical attack is 2
+        player.GetComponent<characterClass>().setPA(2);
+        //movement speed is 4
+        player.GetComponent<characterClass>().setMS(4);
+        //attack speed is 4
+        player.GetComponent<characterClass>().setAS(4);
     }
 
     public void setClassNoble()
     {
         characterClass.clss = "Noble";
         characterClass.totalHP = 6;
-        characterClass.MD = 6;
-        characterClass.PD = 6;
-        characterClass.MA = 6;
-        characterClass.PA = 6;
-        characterClass.MS = 1;
-        characterClass.AS = 1;
+        //Magic defense is 6
+        player.GetComponent<characterClass>().setMD(6);
+        //physical defense is 6
+        player.GetComponent<characterClass>().setPD(6);
+        //magic attack is 6
+        player.GetComponent<characterClass>().setMA(6);
+        //physical attack is 6
+        player.GetComponent<characterClass>().setPA(6);
+        //movement speed is 1
+        player.GetComponent<characterClass>().setMS(1);
+        //attack speed is 1
+        player.GetComponent<characterClass>().setAS(1);
     }
 
     public void setClassAssassin()
     {
         characterClass.clss = "Assassin";
         characterClass.totalHP = 2;
-        characterClass.MD = 1;
-        characterClass.PD = 1;
-        characterClass.MA = 0;
-        characterClass.PA = 5;
-        characterClass.MS = 3;
-        characterClass.AS = 6;
+        
+        //Magic defense is 1
+        player.GetComponent<characterClass>().setMD(1);
+        //physical defense is 1
+        player.GetComponent<characterClass>().setPD(1);
+        //magic attack is 0
+        player.GetComponent<characterClass>().setMA(0);
+        //physical attack is 5
+        player.GetComponent<characterClass>().setPA(5);
+        //movement speed is 3
+        player.GetComponent<characterClass>().setMS(3);
+        //attack speed is 6
+        player.GetComponent<characterClass>().setAS(6);
+
+ 
     }
 
     public void setClassWitch()
     {
         characterClass.clss = "Witch";
         characterClass.totalHP = 3;
-        characterClass.MD = 4;
-        characterClass.PD = 0;
-        characterClass.MA = 8;
-        characterClass.PA = 0;
-        characterClass.MS = 2;
-        characterClass.AS = 5;
+
+        //Magic defense is 4
+        player.GetComponent<characterClass>().setMD(4);
+        //physical defense is 0
+        player.GetComponent<characterClass>().setPD(0);
+        //magic attack is 8
+        player.GetComponent<characterClass>().setMA(8);
+        //physical attack is 0
+        player.GetComponent<characterClass>().setPA(0);
+        //movement speed is 2
+        player.GetComponent<characterClass>().setMS(2);
+        //attack speed is 5
+        player.GetComponent<characterClass>().setAS(5);
+
     }
 
     public void setClassKnight()
     {
         characterClass.clss = "Knight";
         characterClass.totalHP = 10;
-        characterClass.MD = 2;
-        characterClass.PD = 6;
-        characterClass.MA = 0;
-        characterClass.PA = 3;
-        characterClass.MS = 2;
-        characterClass.AS = 3;
+
+        //Magic defense is 2
+        player.GetComponent<characterClass>().setMD(2);
+        //physical defense is 6
+        player.GetComponent<characterClass>().setPD(6);
+        //magic attack is 0
+        player.GetComponent<characterClass>().setMA(0);
+        //physical attack is 3
+        player.GetComponent<characterClass>().setPA(3);
+        //movement speed is 2
+        player.GetComponent<characterClass>().setMS(2);
+        //attack speed is 3
+        player.GetComponent<characterClass>().setAS(3);
     }
 
     public void setClassDoc()
     {
         characterClass.clss = "Doctor";
         characterClass.totalHP = 9;
-        characterClass.MD = 2;
-        characterClass.PD = 2;
-        characterClass.MA = 1;
-        characterClass.PA = 4;
-        characterClass.MS = 3;
-        characterClass.AS = 3;
+
+        //Magic defense is 2
+        player.GetComponent<characterClass>().setMD(2);
+        //physical defense is 2;
+        player.GetComponent<characterClass>().setPD(2);
+        //magic attack is 1
+        player.GetComponent<characterClass>().setMA(1);
+        //physical attack is 4
+        player.GetComponent<characterClass>().setPA(4);
+        //movement speed is 3
+        player.GetComponent<characterClass>().setMS(3);
+        //attack speed is 3
+        player.GetComponent<characterClass>().setAS(3);
+
     }
     public void setClassMonk()
     {
         characterClass.clss = "Monk";
        characterClass.totalHP = 5;
-        characterClass.MD = 4;
-        characterClass.PD = 3;
-        characterClass.MA = 2;
-        characterClass.PA = 1;
-        characterClass.MS = 6;
-        characterClass.AS = 1;
+
+        //Magic defense is 4
+        player.GetComponent<characterClass>().setMD(4);
+        //physical defense is 3
+        player.GetComponent<characterClass>().setPD(3);
+        //magic attack is 2
+        player.GetComponent<characterClass>().setMA(2);
+        //physical attack is 1
+        player.GetComponent<characterClass>().setPA(1);
+        //movement speed is 6
+        player.GetComponent<characterClass>().setMS(6);
+        //attack speed is 1
+        player.GetComponent<characterClass>().setAS(1);
+
     }
 
     public void setName()
