@@ -471,6 +471,10 @@ public class battlerHandler : MonoBehaviour
         enemy.GetComponent<wolfScript>().currentHealth -= (playerLethality);
 
     }
+    public void specialMove()
+    {
+        enemy.GetComponent<wolfScript>().currentHealth -= (20);
+    }
 
     public void playerDefend()
     {
