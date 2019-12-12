@@ -69,6 +69,7 @@ public class characterClass : MonoBehaviour
     void Start()
     {
         currentHP = totalHP;
+        defaultState();
         //setImage();
         // variables
         /*Name = ChangeScene.Name;
@@ -280,4 +281,49 @@ public class characterClass : MonoBehaviour
         return AS;
     }
 
+    public void defaultState()
+    {
+        if(currentHP == null)
+        {
+            currentHP = 10;
+        }
+        else if(totalHP == null)
+        {
+            totalHP = 10;
+        }
+        else if(MD == null)
+        {
+            MD = 2;
+        }
+        else if(PD == null)
+        {
+            PD = 6;
+        }
+        else if(MA == null)
+        {
+            MA = 0;
+        }
+        else if(PA == null)
+        {
+            PA = 3;
+        }
+        else if(MS == null)
+        {
+            MS = 2;
+        }
+        else if(AS == null)
+        {
+            AS = 3;
+        }
+        else if(clss == null)
+        {
+            clss = "Knight";
+        }
+        else if(fullBodyPath == null)
+        {
+            fullBodyPath = "Art/characterArt/Knight";
+        }
+      
+
+    }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class wolfScript : MonoBehaviour
 {
-    public battlerHandler mng;
+
+    public GameObject mng;
     // Start is called before the first frame update
     public string clss;
     public int currentHealth;
@@ -16,25 +17,41 @@ public class wolfScript : MonoBehaviour
     public int MS = 3;
     public int AS = 3;
 
+    //only used for other heroes.
+    public int special;
+
     //have bools for now to determine which enemy is present
     public bool wolf;
-    public bool bandit;
-    public bool killer;
-    public bool mage;
-    //have a reference to its target
-    public GameObject target;
+    public bool bandit = false;
+    public bool killer = false;
+    public bool mage = false;
+   
+
+    //set up the enemy sprites
+    public SpriteRenderer enemyRend;
+
+    //determine which part of final fight its is, if it even is to being with
+    public bool final1;
+    public bool final2;
+    public bool final3;
+    public bool final4;
 
     void Start()
     {
+        //load in the sprites for the enemy
+        enemyRend = this.gameObject.GetComponentInChildren<SpriteRenderer>();
+        wolf = true;
+
+
         setUp();
         currentHealth = totalHealth;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public string displayHealth()
     {
@@ -54,7 +71,7 @@ public class wolfScript : MonoBehaviour
     public int attack()
     {
         //call the player's take damage function and pass in the wolof's attack val
-        
+
         //mng.next();
         return PA;
 
@@ -62,7 +79,7 @@ public class wolfScript : MonoBehaviour
 
     public bool dead()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             return true;
         }
@@ -76,7 +93,7 @@ public class wolfScript : MonoBehaviour
     //write up how the wolf will make moves
     public void makeMove()
     {
-        if(true)
+        if (true)
         {
             attack();
         }
@@ -86,10 +103,12 @@ public class wolfScript : MonoBehaviour
     public void setUp() //string location
     {
         //if the battle is in the north
-        if (wolf) //location == "N"
+        if (mng.GetComponent<battlerHandler>().loc == 1 || wolf) //location == "N" location 1
         {
             //set up the tundra wolf stats
             clss = "Tundra Wolf";
+            enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/wolf_placeholder");
+
             totalHealth = 5;
             MD = 0;
             PD = 3;
@@ -99,9 +118,11 @@ public class wolfScript : MonoBehaviour
             AS = 3;
         }
         //if the battle is in the west
-        else if(mage) //location == "W"
+        else if (mng.GetComponent<battlerHandler>().loc == 4 || mage) //location == "W" location 4
         {
             //set up the Mage Outcast Stats
+            enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/mageOutcast_placeholder");
+
             clss = "Mage Outcast";
             totalHealth = 4;
             MD = 6;
@@ -112,9 +133,10 @@ public class wolfScript : MonoBehaviour
             AS = 3;
         }
         //if the battle is in the East
-        else if(killer) //location ==" E"
+        else if (mng.GetComponent<battlerHandler>().loc == 2 || killer) //location ==" E" location 2
         {
             //set up the Crazed Killer Stats
+            enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/crazedKiller_placeholder");
             clss = "Crazed Killer";
             totalHealth = 1;
             MD = 0;
@@ -125,9 +147,10 @@ public class wolfScript : MonoBehaviour
             AS = 4;
         }
         //or if the battle is in the south
-        else if(bandit) //location == "S"
+        else if (mng.GetComponent<battlerHandler>().loc == 3 || bandit) //location == "S" location 3 
         {
             //set up the Desert Bandit Stats
+            enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/desertBandit_placeholder");
             clss = "Desert Bandit";
             totalHealth = 9;
             MD = 0;
@@ -137,10 +160,44 @@ public class wolfScript : MonoBehaviour
             MS = 1;
             AS = 2;
         }
+
+        //set up our final opponents
+        else if(final1 && !final2 && !final3 && !final4)
+        {
+            //set up the first opponent in the list
+            clss = "First Hero";
+            totalHealth = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[0];
+            currentHealth = totalHealth;
+            //go thru each stat and set em up
+            PA = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[1];
+            MA = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[2];
+            PD = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[3];
+            MD = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[4];
+            AS = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[5]; 
+            MS = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[6];
+            special = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[7];
+
+        }
+        else if (!final1 && final2 && !final3 && !final4)
+        {
+            //set up the second opponent in the list
+            clss = "Second Hero";
+        }
+        else if (!final1 && !final2 && final3 && !final4)
+        {
+            //set up the third fight
+            clss = "Third Hero";
+        }
+        else if (!final1 && !final2 && !final3 && final4)
+        {
+            //set up the fourth fight
+            clss = "Fourth Hero";
+        }
         //if all else fails
         else
         {
             //default to tundra wolf
+            enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/wolf_placeholder");
             clss = "Tundra Wolf";
             totalHealth = 5;
             MD = 0;

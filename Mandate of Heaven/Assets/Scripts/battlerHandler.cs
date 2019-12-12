@@ -55,9 +55,15 @@ public class battlerHandler : MonoBehaviour
 
     //have  a public variable to record the damage done 
     public int playerLethality;
+
+    //location of battle
+    public int loc;
+    
     // Start is called before the first frame update
     void Start()
     {
+
+        
         //always start in start
         currState = stateOfBattle.START;
         displayCombatantInfo();
@@ -67,6 +73,8 @@ public class battlerHandler : MonoBehaviour
         playerTurn = true;
         enemTurn = false;
         endCombat = false; */
+        loc = this.gameObject.GetComponent<DataManagement>().player.location;
+
     }
 
     // Update is called once per frame
@@ -368,6 +376,7 @@ public class battlerHandler : MonoBehaviour
         }
         //set up the player lethality for display later
         playerLethality = dmgResult - enemDefenseMod;
+        //never let the player do no damage at all
         if(playerLethality <=0 )
         {
             playerLethality = 1;
@@ -383,7 +392,7 @@ public class battlerHandler : MonoBehaviour
     }
 
     //this will determine if the attacking party hits or not
-    public bool hitSuccess()
+    /*public bool hitSuccess()
     {
         
         if (true)
@@ -394,7 +403,7 @@ public class battlerHandler : MonoBehaviour
         {
             return false;
         }
-    }
+    }*/
 }
     
 
