@@ -229,7 +229,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1369778353}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -713,7 +713,7 @@ RectTransform:
   m_Children:
   - {fileID: 1835567502}
   m_Father: {fileID: 1369778353}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1220,7 +1220,7 @@ MonoBehaviour:
   defendBtn: {fileID: 953513007}
   specialBtn: {fileID: 1997406326}
   fleeBtn: {fileID: 784326293}
-  nextFightBtn: {fileID: 0}
+  nextFightBtn: {fileID: 784326293}
   nextBtn: {fileID: 1331731173}
   player: {fileID: 1278656078}
   enemy: {fileID: 1022989797}
@@ -1361,8 +1361,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1331731172}
+  m_Children: []
   m_Father: {fileID: 1605391039}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1579,12 +1578,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 815850344}
-  m_Father: {fileID: 1188497989}
-  m_RootOrder: 0
+  m_Father: {fileID: 1369778353}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 190.99997, y: -132}
+  m_AnchoredPosition: {x: 149.49994, y: -44.499992}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331731173
@@ -1715,6 +1714,7 @@ RectTransform:
   - {fileID: 2041582222}
   - {fileID: 953513006}
   - {fileID: 1997406325}
+  - {fileID: 1331731172}
   - {fileID: 784326292}
   - {fileID: 220380381}
   m_Father: {fileID: 1605391039}

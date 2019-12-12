@@ -1220,7 +1220,7 @@ MonoBehaviour:
   defendBtn: {fileID: 953513007}
   specialBtn: {fileID: 1997406326}
   fleeBtn: {fileID: 784326293}
-  nextFightBtn: {fileID: 0}
+  nextFightBtn: {fileID: 1218672146}
   nextBtn: {fileID: 1331731173}
   player: {fileID: 1278656078}
   enemy: {fileID: 1022989797}
@@ -1717,7 +1717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 190.99997, y: -132}
+  m_AnchoredPosition: {x: 86, y: -128}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331731173

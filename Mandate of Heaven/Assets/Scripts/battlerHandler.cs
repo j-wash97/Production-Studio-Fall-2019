@@ -287,7 +287,7 @@ public class battlerHandler : MonoBehaviour
             attackBtn.gameObject.SetActive(false);
             specialBtn.gameObject.SetActive(false);
             defendBtn.gameObject.SetActive(false);
-            fleeBtn.gameObject.SetActive(false);
+            fleeBtn.gameObject.SetActive(true);
             status.gameObject.SetActive(true);
             nextFightBtn.gameObject.SetActive(true);
             //disable the next button
@@ -302,7 +302,7 @@ public class battlerHandler : MonoBehaviour
             attackBtn.gameObject.SetActive(false);
             specialBtn.gameObject.SetActive(false);
             defendBtn.gameObject.SetActive(false);
-            fleeBtn.gameObject.SetActive(false);
+            fleeBtn.gameObject.SetActive(true);
             status.gameObject.SetActive(true);
             nextFightBtn.gameObject.SetActive(true);
             //disable the next button
