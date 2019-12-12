@@ -5,7 +5,6 @@ using UnityEngine;
 public class wolfScript : MonoBehaviour
 {
 
-    public GameObject mng;
     // Start is called before the first frame update
     public string clss;
     public int currentHealth;
@@ -35,9 +34,14 @@ public class wolfScript : MonoBehaviour
     public bool final2;
     public bool final3;
     public bool final4;
-
+    public Character[] r;
+    public Character g;
     void Start()
     {
+        //instantiate instaance of player 
+        g = DataManagement.instance.player;
+        //have an array  the instances of the other characters
+        r = DataManagement.instance.rivals;
         //load in the sprites for the enemy
         enemyRend = this.gameObject.GetComponentInChildren<SpriteRenderer>();
         wolf = true;
@@ -81,6 +85,7 @@ public class wolfScript : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+           
             return true;
         }
         else
@@ -103,7 +108,7 @@ public class wolfScript : MonoBehaviour
     public void setUp() //string location
     {
         //if the battle is in the north
-        if (mng.GetComponent<battlerHandler>().loc == 1 || wolf) //location == "N" location 1
+        if (g.location == 1 || wolf) //location == "N" location 1
         {
             //set up the tundra wolf stats
             clss = "Tundra Wolf";
@@ -118,7 +123,7 @@ public class wolfScript : MonoBehaviour
             AS = 3;
         }
         //if the battle is in the west
-        else if (mng.GetComponent<battlerHandler>().loc == 4 || mage) //location == "W" location 4
+        else if (g.location == 4 || mage) //location == "W" location 4
         {
             //set up the Mage Outcast Stats
             enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/mageOutcast_placeholder");
@@ -133,7 +138,7 @@ public class wolfScript : MonoBehaviour
             AS = 3;
         }
         //if the battle is in the East
-        else if (mng.GetComponent<battlerHandler>().loc == 2 || killer) //location ==" E" location 2
+        else if (g.location == 2 || killer) //location ==" E" location 2
         {
             //set up the Crazed Killer Stats
             enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/crazedKiller_placeholder");
@@ -147,7 +152,7 @@ public class wolfScript : MonoBehaviour
             AS = 4;
         }
         //or if the battle is in the south
-        else if (mng.GetComponent<battlerHandler>().loc == 3 || bandit) //location == "S" location 3 
+        else if (g.location == 3 || bandit) //location == "S" location 3 
         {
             //set up the Desert Bandit Stats
             enemyRend.sprite = Resources.Load<Sprite>("Art/enemyArt/desertBandit_placeholder");
@@ -166,32 +171,62 @@ public class wolfScript : MonoBehaviour
         {
             //set up the first opponent in the list
             clss = "First Hero";
-            totalHealth = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[0];
+            totalHealth = r[0].attributes[0];
             currentHealth = totalHealth;
             //go thru each stat and set em up
-            PA = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[1];
-            MA = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[2];
-            PD = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[3];
-            MD = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[4];
-            AS = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[5]; 
-            MS = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[6];
-            special = mng.GetComponent<battlerHandler>().GetComponent<DataManagement>().rivals[0].attributes[7];
+            PA =  r[0].attributes[1];
+            MA = r[0].attributes[2];
+            PD = r[0].attributes[3];
+            MD = r[0].attributes[4];
+            AS = r[0].attributes[5]; 
+            MS = r[0].attributes[6];
+            special = r[0].attributes[7];
 
         }
         else if (!final1 && final2 && !final3 && !final4)
         {
             //set up the second opponent in the list
             clss = "Second Hero";
+            totalHealth = r[1].attributes[0];
+            currentHealth = totalHealth;
+            //go thru each stat and set em up
+            PA = r[1].attributes[1];
+            MA = r[1].attributes[2];
+            PD = r[1].attributes[3];
+            MD = r[1].attributes[4];
+            AS = r[1].attributes[5];
+            MS = r[1].attributes[6];
+            special = r[1].attributes[7];
         }
         else if (!final1 && !final2 && final3 && !final4)
         {
             //set up the third fight
             clss = "Third Hero";
+            totalHealth = r[2].attributes[0];
+            currentHealth = totalHealth;
+            //go thru each stat and set em up
+            PA = r[2].attributes[1];
+            MA = r[2].attributes[2];
+            PD = r[2].attributes[3];
+            MD = r[2].attributes[4];
+            AS = r[2].attributes[5];
+            MS = r[2].attributes[6];
+            special = r[2].attributes[7];
         }
         else if (!final1 && !final2 && !final3 && final4)
         {
             //set up the fourth fight
             clss = "Fourth Hero";
+            totalHealth = r[3].attributes[0];
+            currentHealth = totalHealth;
+            //go thru each stat and set em up
+            PA = r[3].attributes[1];
+            MA = r[3].attributes[2];
+            PD = r[3].attributes[3];
+            MD = r[3].attributes[4];
+            AS = r[3].attributes[5];
+            MS = r[3].attributes[6];
+            special = r[3].attributes[7];
         }
         //if all else fails
         else

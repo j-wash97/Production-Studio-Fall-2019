@@ -1277,8 +1277,8 @@ MonoBehaviour:
     name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
   rivals: []
   occupants: []
 --- !u!1 &1022989797 stripped
@@ -2286,6 +2286,11 @@ PrefabInstance:
     - target: {fileID: 1851658773073339288, guid: 183897b9ab0378f46b0b3c96962f8db0,
         type: 3}
       propertyPath: bandit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851658773073339288, guid: 183897b9ab0378f46b0b3c96962f8db0,
+        type: 3}
+      propertyPath: final1
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

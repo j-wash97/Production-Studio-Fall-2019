@@ -58,12 +58,17 @@ public class battlerHandler : MonoBehaviour
 
     //location of battle
     public int loc;
-    
+
+    //have a sprite renderer to change the bg
+    public Canvas bgImg;
+
+    Character g; 
+
     // Start is called before the first frame update
     void Start()
     {
 
-        
+        g = DataManagement.instance.player;
         //always start in start
         currState = stateOfBattle.START;
         displayCombatantInfo();
@@ -73,8 +78,38 @@ public class battlerHandler : MonoBehaviour
         playerTurn = true;
         enemTurn = false;
         endCombat = false; */
-        loc = this.gameObject.GetComponent<DataManagement>().player.location;
 
+        
+
+        loc = g.location;
+
+        //set up the background
+        //nesw
+        if(loc == 1)
+        {
+            bgImg.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Art/Northern Background");
+        }
+        else if(loc == 2)
+        {
+            bgImg.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Art/Eastern Background");
+        }
+        else if(loc ==3)
+        {
+            bgImg.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Art/Southern Background");
+        }
+        else if(loc == 4)
+        {
+            bgImg.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Art/Western Background");
+        }
+        else if(loc == 0)
+        {
+            //set up the final battle bg
+        }
+        else
+        {
+            bgImg.GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Art/Northern Background");
+        }
+       
     }
 
     // Update is called once per frame
@@ -139,8 +174,10 @@ public class battlerHandler : MonoBehaviour
     public void isDead()
     {
         //if player has lost, set state to appropriate
-        if (player.GetComponent<characterClass>().dead() == true)
+        if (g.attributes[0] <= 0)
         {
+            //lose, and set location to 0
+            g.location = 0;
             currState = stateOfBattle.LOSE;
         }
         if (enemy.GetComponent<wolfScript>().dead() == true)
@@ -173,6 +210,7 @@ public class battlerHandler : MonoBehaviour
             defendBtn.gameObject.SetActive(true);
             fleeBtn.gameObject.SetActive(true);
             status.gameObject.SetActive(false);
+            nextBtn.gameObject.SetActive(false);
             //set up the butons, text and event listeners
             attackBtn.onClick.AddListener(() => player.GetComponent<characterClass>().attack());
 
