@@ -12,6 +12,10 @@ public class MapRival : MonoBehaviour
     {
         rivals = DataManagement.instance.rivals;
         icons = gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+        // Set each rival's icon sprite to appear on screen
+        for(int i = 0; i < rivals.Length; i++)
+        { icons[i].sprite = rivals[i].mapIcon; }
     }
 
     // Update is called once per frame

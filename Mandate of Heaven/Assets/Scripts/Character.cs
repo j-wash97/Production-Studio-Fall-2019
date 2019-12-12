@@ -42,10 +42,10 @@ public class Character
     public int[] attributes = new int[8];
     // The current location of the character
     public int location;
-    // The file path for the character's full body sprite
-    public string fullBodyPath;
-    // The file path for the character's map icon sprite
-    public string mapIconPath;
+    // The character's full body sprite
+    public Sprite fullBody;
+    // The character's map icon sprite
+    public Sprite mapIcon;
 
     /// <summary>
     /// Increments a specified attribute by a given value

@@ -11,6 +11,9 @@ public class MapPlayer : MonoBehaviour
     {
         character = DataManagement.instance.player;
         mapDisplay.character = character;
+
+        // Set the player character's icon sprite to appear on screen
+        GetComponent<SpriteRenderer>().sprite = character.mapIcon;
     }
 
     // Update is called once per frame
