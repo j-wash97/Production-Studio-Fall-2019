@@ -15,6 +15,7 @@ public class MapDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DataManagement.instance.turn++;
         turnCount.text = "Day " + DataManagement.instance.turn;
 
         statsList.text = character.name +

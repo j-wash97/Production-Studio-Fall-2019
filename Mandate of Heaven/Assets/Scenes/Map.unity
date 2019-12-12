@@ -591,7 +591,7 @@ Transform:
   m_GameObject: {fileID: 448156091}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 1019247985}
   m_RootOrder: 2
@@ -754,7 +754,7 @@ Transform:
   m_GameObject: {fileID: 582764339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 1019247985}
   m_RootOrder: 3
@@ -957,7 +957,7 @@ Transform:
   m_GameObject: {fileID: 616616399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 1019247985}
   m_RootOrder: 1
@@ -1399,7 +1399,7 @@ Transform:
   m_GameObject: {fileID: 1029490893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 1019247985}
   m_RootOrder: 0
@@ -2176,7 +2176,7 @@ Transform:
   m_GameObject: {fileID: 1777819314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2197,8 +2197,8 @@ MonoBehaviour:
     name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
   mapDisplay: {fileID: 1791190070}
 --- !u!1 &1791190068
 GameObject:
@@ -2256,8 +2256,8 @@ MonoBehaviour:
     name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
 --- !u!1 &1921774649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,29 +2292,29 @@ MonoBehaviour:
     name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
   rivals:
   - name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
   - name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
   - name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
   - name: 
     attributes: 0000000000000000000000000000000000000000000000000000000000000000
     location: 0
-    fullBodyPath: 
-    mapIconPath: 
+    fullBody: {fileID: 0}
+    mapIcon: {fileID: 0}
   occupants: []
 --- !u!4 &1921774651
 Transform:
