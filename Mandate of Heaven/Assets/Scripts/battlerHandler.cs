@@ -353,7 +353,7 @@ public class battlerHandler : MonoBehaviour
 
         //player info displayed above the head
         playerName.GetComponentInChildren<Text>().text = g.name;
-        playerClass.GetComponentInChildren<Text>().text = player;
+        playerClass.GetComponentInChildren<Text>().text = "player";
         playerHealth.GetComponentInChildren<Text>().text = g.attributes[0].ToString();
     }
     //just a function to write out general statments to the info canvas
