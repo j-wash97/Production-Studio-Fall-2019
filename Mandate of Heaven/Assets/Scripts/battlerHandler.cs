@@ -352,9 +352,9 @@ public class battlerHandler : MonoBehaviour
         wolfInfo.GetComponentInChildren<Text>().text = enemy.GetComponent<wolfScript>().displayHealth(); ;
 
         //player info displayed above the head
-        playerName.GetComponentInChildren<Text>().text = player.GetComponent<characterClass>().displayName();
-        playerClass.GetComponentInChildren<Text>().text = player.GetComponent<characterClass>().displayClass();
-        playerHealth.GetComponentInChildren<Text>().text = player.GetComponent<characterClass>().displayHealth();
+        playerName.GetComponentInChildren<Text>().text = g.name;
+        playerClass.GetComponentInChildren<Text>().text = player;
+        playerHealth.GetComponentInChildren<Text>().text = g.attributes[0].ToString();
     }
     //just a function to write out general statments to the info canvas
     public void write(string sample)
