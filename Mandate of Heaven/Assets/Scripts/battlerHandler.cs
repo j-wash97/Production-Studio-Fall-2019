@@ -12,7 +12,9 @@ public class battlerHandler : MonoBehaviour
         PLAYERCH,
         ENEMCH,
         LOSE,
-        WIN
+        WIN,
+        FFIGHT1,
+        NFFIGHT
     }
 
     public stateOfBattle currState;
@@ -27,7 +29,7 @@ public class battlerHandler : MonoBehaviour
     public Button defendBtn;
     public Button specialBtn;
     public Button fleeBtn;
-
+    public Button nextFightBtn;
 
     //btn for going to the next page/ descr in the info canvas
     public Button nextBtn;
@@ -62,7 +64,11 @@ public class battlerHandler : MonoBehaviour
     //have a sprite renderer to change the bg
     public Canvas bgImg;
 
-    Character g; 
+    Character g;
+
+    public bool finalFight;
+    public bool finalVictory;
+
 
     // Start is called before the first frame update
     void Start()
@@ -180,9 +186,13 @@ public class battlerHandler : MonoBehaviour
             g.location = 0;
             currState = stateOfBattle.LOSE;
         }
-        if (enemy.GetComponent<wolfScript>().dead() == true)
+        if (enemy.GetComponent<wolfScript>().dead() == true && !finalVictory && finalFight)
         {
-            currState = stateOfBattle.WIN;
+            currState = stateOfBattle.FFIGHT1;
+        }
+        if(enemy.GetComponent<wolfScript>().dead() == true && finalVictory && !finalFight)
+        {
+            currState = stateOfBattle.NFFIGHT;
         }
 
     }
@@ -196,7 +206,7 @@ public class battlerHandler : MonoBehaviour
             specialBtn.gameObject.SetActive(false);
             defendBtn.gameObject.SetActive(false);
             fleeBtn.gameObject.SetActive(false);
-
+            nextFightBtn.gameObject.SetActive(false);
             status.gameObject.SetActive(true);
             write("You've been attacked by a " + enemy.GetComponent<wolfScript>().clss + "!");
             //set the button up for next
@@ -211,6 +221,7 @@ public class battlerHandler : MonoBehaviour
             fleeBtn.gameObject.SetActive(true);
             status.gameObject.SetActive(false);
             nextBtn.gameObject.SetActive(false);
+            nextFightBtn.gameObject.SetActive(false);
             //set up the butons, text and event listeners
             attackBtn.onClick.AddListener(() => player.GetComponent<characterClass>().attack());
 
@@ -223,7 +234,7 @@ public class battlerHandler : MonoBehaviour
             defendBtn.gameObject.SetActive(false);
             fleeBtn.gameObject.SetActive(true);
             status.gameObject.SetActive(true);
-
+            nextFightBtn.gameObject.SetActive(false);
             write("The " + enemy.GetComponent<wolfScript>().clss + " attacks you.");
             fleeBtn.GetComponentInChildren<Text>().text = "next";
 
@@ -235,11 +246,13 @@ public class battlerHandler : MonoBehaviour
             defendBtn.gameObject.SetActive(false);
             fleeBtn.gameObject.SetActive(true);
             status.gameObject.SetActive(true);
+            nextFightBtn.gameObject.SetActive(false);
             //disable the next button
             playerDecInfo.SetActive(false);
             write("You've won!");
             status.text = st;
             fleeBtn.GetComponentInChildren<Text>().text = "Back to map";
+
             // fleeBtn.onClick.AddListener(() => this.GetComponent<ChangeScene>().changeScene("Map"));
         }
         if (currState == stateOfBattle.LOSE)
@@ -249,6 +262,7 @@ public class battlerHandler : MonoBehaviour
             defendBtn.gameObject.SetActive(false);
             fleeBtn.gameObject.SetActive(true);
             status.gameObject.SetActive(true);
+            nextFightBtn.gameObject.SetActive(false);
             //disable the next button
             playerDecInfo.SetActive(false);
             write("You've Lost!");
@@ -265,7 +279,38 @@ public class battlerHandler : MonoBehaviour
             fleeBtn.gameObject.SetActive(false);
             playerDecInfo.gameObject.SetActive(true);
             status.gameObject.SetActive(true);
+            nextFightBtn.gameObject.SetActive(false);
             writeDMG();
+        }
+        if (currState == stateOfBattle.FFIGHT1)
+        {
+            attackBtn.gameObject.SetActive(false);
+            specialBtn.gameObject.SetActive(false);
+            defendBtn.gameObject.SetActive(false);
+            fleeBtn.gameObject.SetActive(false);
+            status.gameObject.SetActive(true);
+            nextFightBtn.gameObject.SetActive(true);
+            //disable the next button
+            playerDecInfo.SetActive(false);
+            write("You've won! Your next opponent awaits you.");
+            status.text = st;
+            fleeBtn.GetComponentInChildren<Text>().text = "Next fight";
+            // fleeBtn.onClick.AddListener(() => this.GetComponent<ChangeScene>().changeScene("Map"));
+        }
+        if(currState == stateOfBattle.NFFIGHT)
+        {
+            attackBtn.gameObject.SetActive(false);
+            specialBtn.gameObject.SetActive(false);
+            defendBtn.gameObject.SetActive(false);
+            fleeBtn.gameObject.SetActive(false);
+            status.gameObject.SetActive(true);
+            nextFightBtn.gameObject.SetActive(true);
+            //disable the next button
+            playerDecInfo.SetActive(false);
+            write("You've won! You have defeated all opponents");
+            status.text = st;
+            fleeBtn.GetComponentInChildren<Text>().text = "Next fight";
+            // fleeBtn.onClick.AddListener(() => this.GetComponent<ChangeScene>().changeScene("Map"));
         }
 
     }
@@ -357,6 +402,7 @@ public class battlerHandler : MonoBehaviour
             enemyDecision();
             currState = stateOfBattle.ENEMCH;
         }
+        
         //set up the battle here
         setUPUI();
         //always dsiplay the combatant info no matter where you are
@@ -378,13 +424,15 @@ public class battlerHandler : MonoBehaviour
             // characterClass.currHP -= enemy.GetComponent<wolfScript>().attack();
             //}
             //the resulting dmg is the enemy's PA subtracted by the characters PD, utilizing the wolf scripts attack method
-            int dmgResult = enemy.GetComponent<wolfScript>().attack() - characterClass.PD;
+            int dmgResult = enemy.GetComponent<wolfScript>().attack() - g.attributes[4];
             if (dmgResult <= 0)
             {
                 dmgResult = 0;
             }
+          
             //the player takes damage, minus teh amount that they were able to defend for
-            player.GetComponent<characterClass>().takeDamage(dmgResult - playerDefenseMod);
+            g.attributes[0] -= (dmgResult - playerDefenseMod);
+            // player.GetComponent<characterClass>().takeDamage
 
         }
         //have another option for the wolf
@@ -407,7 +455,7 @@ public class battlerHandler : MonoBehaviour
     public void playerAttack()
     {
         //the dmg result is the attack of the player - the physical defense of the 
-        int dmgResult = player.GetComponent<characterClass>().attack() - 3;
+        int dmgResult = g.attributes[1] - enemy.GetComponent<wolfScript>().PD;
         if (dmgResult <= 0)
         {
             dmgResult = 0;

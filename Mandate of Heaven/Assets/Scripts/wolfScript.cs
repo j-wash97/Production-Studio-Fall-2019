@@ -170,6 +170,7 @@ public class wolfScript : MonoBehaviour
         else if(final1 && !final2 && !final3 && !final4)
         {
             //set up the first opponent in the list
+            enemyRend.sprite = r[0].fullBody;
             clss = "First Hero";
             totalHealth = r[0].attributes[0];
             currentHealth = totalHealth;
@@ -186,6 +187,7 @@ public class wolfScript : MonoBehaviour
         else if (!final1 && final2 && !final3 && !final4)
         {
             //set up the second opponent in the list
+            enemyRend.sprite = r[1].fullBody;
             clss = "Second Hero";
             totalHealth = r[1].attributes[0];
             currentHealth = totalHealth;
@@ -201,6 +203,7 @@ public class wolfScript : MonoBehaviour
         else if (!final1 && !final2 && final3 && !final4)
         {
             //set up the third fight
+            enemyRend.sprite = r[2].fullBody;
             clss = "Third Hero";
             totalHealth = r[2].attributes[0];
             currentHealth = totalHealth;
@@ -216,6 +219,7 @@ public class wolfScript : MonoBehaviour
         else if (!final1 && !final2 && !final3 && final4)
         {
             //set up the fourth fight
+            enemyRend.sprite = r[3].fullBody;
             clss = "Fourth Hero";
             totalHealth = r[3].attributes[0];
             currentHealth = totalHealth;
