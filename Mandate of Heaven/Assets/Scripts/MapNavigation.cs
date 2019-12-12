@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MapNavigation : MonoBehaviour
 {
@@ -75,6 +76,9 @@ public class MapNavigation : MonoBehaviour
 
         // Show the valid moves the character can make on the map
         DisplayValidMove();
+
+        // Set the Data Manager to save the list of occupants where the player is located when the scene changes
+        SceneManager.activeSceneChanged += SaveOccupants;
     }
 
     // Update is called once per frame
@@ -99,7 +103,10 @@ public class MapNavigation : MonoBehaviour
             }
 
             if (lerpCounter == 1.0f)
+            {
                 EventSystem.current.SetSelectedGameObject(null);
+                SceneManager.LoadScene(2);
+            }
         }
     }
 
@@ -231,5 +238,15 @@ public class MapNavigation : MonoBehaviour
 
         // Set the orbiting position as the rival's destination
         rivalDestinations[rivalIndex] = pos;
+    }
+
+    /// <summary>
+    /// Save the List of occupant for where the player character is located to the Data Manager
+    /// </summary>
+    /// <param name="current"></param>
+    /// <param name="next"></param>
+    private void SaveOccupants(Scene current, Scene next)
+    {
+        DataManagement.instance.occupants = locNodes[playerCharacter.location].occupants;
     }
 }

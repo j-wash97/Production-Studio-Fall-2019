@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MapDisplay : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class MapDisplay : MonoBehaviour
     {
         DataManagement.instance.turn++;
         turnCount.text = "Day " + DataManagement.instance.turn;
+
+        // Begin the final battle upon reaching turn 10
+        if (DataManagement.instance.turn >= 10)
+            SceneManager.LoadScene(5, LoadSceneMode.Single);
 
         statsList.text = character.name +
                        "\n\nHealth:         " + character.attributes[(int)CharacterAttribute.Health] +
